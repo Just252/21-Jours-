@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21 Jours Pour Reprogrammer Ton Mental - Transformation Garantie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+            animation: fadeInDown 1s ease;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .hero-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease;
+        }
+
+        .price-tag {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px 0;
+            animation: pulse 2s infinite;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            font-size: 1.5rem;
+            opacity: 0.7;
+        }
+
+        .new-price {
+            font-size: 4rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            position: relative;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 50%, #ffd93d 100%);
+            color: white;
+            padding: 25px 60px;
+            font-size: 1.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 50px rgba(255, 107, 107, 0.5),
+                        0 0 30px rgba(255, 211, 61, 0.3),
+                        inset 0 -5px 20px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, 
+                rgba(255, 255, 255, 0.3) 0%, 
+                transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(255, 107, 107, 0.7),
+                        0 0 50px rgba(255, 211, 61, 0.5),
+                        inset 0 -5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover::after {
+            opacity: 1;
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            animation: fadeIn 1s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .program-content {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+
+        .day-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .day-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .day-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .testimonial {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            color: #333;
+        }
+
+        .guarantee {
+            background: #fff3cd;
+            border: 3px solid #ffc107;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .urgency {
+            background: #ff6b6b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 30px 0;
+            animation: shake 3s infinite;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 20px;
+            }
+
+            .new-price {
+                font-size: 3rem;
+            }
+
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 1.2rem;
+            }
+        }
+
+        .check-mark {
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>21 Jours Pour Reprogrammer Ton Mental</h1>
+            <p class="subtitle">Transforme ta vie en changeant simplement ta façon de penser</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="hero-section">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <img src="img.png" alt="21 Jours Pour Reprogrammer Ton Mental - Couverture" style="max-width: 450px; width: 100%; height: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.4); border-radius: 15px; animation: fadeIn 1.5s ease;">
+            </div>
+            
+            <h2 style="text-align: center; color: #667eea; margin-bottom: 30px; font-size: 2.5rem;">
+                Et si tout commençait par une pensée ?
+            </h2>
+            
+            <p style="font-size: 1.2rem; text-align: center; margin-bottom: 30px;">
+                Tu as entre les mains un programme complet de <strong>transformation mentale</strong> qui va changer ta façon de penser, d'agir et de vivre. En seulement 21 jours, tu vas découvrir comment reprogrammer ton esprit pour créer la vie que tu mérites vraiment.
+            </p>
+
+            <div class="urgency">
+                <h3 style="margin-bottom: 10px;">⏰ OFFRE LIMITÉE</h3>
+                <p>Profite du prix de lancement exceptionnel avant qu'il n'augmente !</p>
+            </div>
+
+            <div class="price-tag">
+                <p class="old-price">Prix normal : 47€</p>
+                <p class="new-price">5€</p>
+                <p style="font-size: 1.2rem;">🔥 Économise 42€ aujourd'hui !</p>
+            </div>
+
+            <div style="text-align: center; margin: 40px 0;">
+                <a href="https://zuutdfrn.mychariow.store/prd_5n7dy3/checkout" class="cta-button">
+                    ✨ OUI, JE VEUX ME TRANSFORMER MAINTENANT
+                </a>
+                <p style="margin-top: 15px; color: #666;">Accès immédiat après paiement</p>
+            </div>
+        </div>
+
+        <div class="benefits">
+            <div class="benefit-card">
+                <h3>🧠 Reprogramme Ton Mental</h3>
+                <p>Découvre comment tes pensées créent ta réalité et apprends à les contrôler pour attirer le succès</p>
+            </div>
+            <div class="benefit-card">
+                <h3>💪 Développe Ta Confiance</h3>
+                <p>Élimine les pensées limitantes et construis une estime de toi inébranlable</p>
+            </div>
+            <div class="benefit-card">
+                <h3>🎯 Atteins Tes Objectifs</h3>
+                <p>Crée des habitudes puissantes et une discipline qui te mènent vers tes rêves</p>
+            </div>
+            <div class="benefit-card">
+                <h3>🚀 Passe À L'Action</h3>
+                <p>Surmonte la procrastination et l'auto-sabotage pour enfin réaliser ton potentiel</p>
+            </div>
+        </div>
+
+        <div class="program-content">
+            <h2 style="text-align: center; color: #667eea; margin-bottom: 30px; font-size: 2rem;">
+                Ce Que Tu Vas Découvrir Dans Ce Programme
+            </h2>
+            
+            <div class="day-list">
+                <div class="day-item">
+                    <strong>Jour 1-7 :</strong> Prendre Conscience
+                    <br>Le pouvoir de tes pensées, identifier les croyances limitantes, comprendre tes schémas mentaux
+                </div>
+                <div class="day-item">
+                    <strong>Jour 8-14 :</strong> Reprogrammer
+                    <br>Affirmations puissantes, visualisation, gratitude, langage intérieur bienveillant
+                </div>
+                <div class="day-item">
+                    <strong>Jour 15-21 :</strong> Transformer
+                    <br>Discipline douce, environnement de transformation, nouvelle identité, plan d'action 90 jours
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; background: white; padding: 30px; border-radius: 10px;">
+                <h3 style="color: #667eea; margin-bottom: 20px;">✅ Ce que tu recevras :</h3>
+                <p><span class="check-mark">✓</span> Un guide complet de 21 jours avec des exercices pratiques</p>
+                <p><span class="check-mark">✓</span> Des techniques éprouvées de reprogrammation mentale</p>
+                <p><span class="check-mark">✓</span> Des rituels matinaux pour transformer ta journée</p>
+                <p><span class="check-mark">✓</span> Un plan d'action pour les 90 prochains jours</p>
+                <p><span class="check-mark">✓</span> Des affirmations puissantes personnalisables</p>
+                <p><span class="check-mark">✓</span> Accès immédiat en format PDF</p>
+            </div>
+        </div>
+
+        <div class="testimonial">
+            <h3 style="text-align: center; margin-bottom: 20px; font-size: 1.8rem;">
+                💬 Ce Que Disent Ceux Qui Ont Transformé Leur Vie
+            </h3>
+            <p style="font-style: italic; margin-bottom: 15px;">
+                "En 21 jours, j'ai complètement changé ma façon de voir les choses. Les exercices sont simples mais incroyablement puissants. J'ai enfin lancé le projet que je repoussais depuis des années !"
+            </p>
+            <p><strong>- Sarah, 32 ans</strong></p>
+        </div>
+
+        <div class="guarantee">
+            <h3 style="color: #856404; margin-bottom: 15px; font-size: 1.8rem;">🛡️ Garantie Satisfaction</h3>
+            <p style="font-size: 1.1rem;">
+                Ce programme a déjà transformé des centaines de vies. Pour seulement 5€, tu as accès à un contenu qui vaut bien plus. C'est un investissement minime pour un changement de vie maximal.
+            </p>
+        </div>
+
+        <div style="background: white; padding: 40px; border-radius: 15px; text-align: center; margin: 40px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+            <div style="margin-bottom: 30px;">
+                <img src="bundle.png" alt="21 Jours - Bundle complet multi-formats" style="max-width: 850px; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+            </div>
+            
+            <h2 style="color: #667eea; margin-bottom: 20px;">🎁 Bonus Exclusif Inclus</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px;">
+                En commandant aujourd'hui, tu reçois également des ressources bonus pour t'aider à démarrer ton business en ligne et atteindre l'indépendance financière !
+            </p>
+            
+            <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <h3 style="margin-bottom: 10px;">⏰ Le prix augmentera bientôt !</h3>
+                <p>Ne rate pas cette opportunité unique de transformer ta vie pour seulement 5€</p>
+            </div>
+
+            <a href="https://zuutdfrn.mychariow.store/prd_5n7dy3/checkout" class="cta-button" style="margin-top: 20px;">
+                🚀 JE COMMENCE MA TRANSFORMATION MAINTENANT
+            </a>
+            <p style="margin-top: 20px; color: #666;">Paiement 100% sécurisé • Accès instantané</p>
+        </div>
+
+        <div style="background: #f8f9fa; padding: 30px; border-radius: 15px; margin: 40px 0;">
+            <h3 style="text-align: center; color: #667eea; margin-bottom: 20px;">❓ Questions Fréquentes</h3>
+            
+            <div style="margin: 20px 0;">
+                <p><strong>Q : Le programme est-il adapté aux débutants ?</strong></p>
+                <p>R : Absolument ! Ce programme est conçu pour tous, quel que soit ton niveau de départ.</p>
+            </div>
+            
+            <div style="margin: 20px 0;">
+                <p><strong>Q : Combien de temps faut-il y consacrer chaque jour ?</strong></p>
+                <p>R : Entre 10 et 30 minutes par jour suffisent pour voir des résultats extraordinaires.</p>
+            </div>
+            
+            <div style="margin: 20px 0;">
+                <p><strong>Q : Quand vais-je recevoir l'ebook ?</strong></p>
+                <p>R : Immédiatement après ton paiement, tu recevras un accès direct au PDF.</p>
+            </div>
+        </div>
+
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px; border-radius: 15px; text-align: center; margin: 40px 0;">
+            <h2 style="margin-bottom: 20px; font-size: 2rem;">🌟 Ta Nouvelle Vie Commence Aujourd'hui</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px;">
+                Tu es à un clic de transformer ton mental, tes habitudes et ta vie entière. Pour le prix d'un café, tu as accès à un programme complet qui peut changer ta trajectoire pour toujours.
+            </p>
+            <p style="font-size: 1.3rem; font-weight: bold; margin-bottom: 30px;">
+                Ne laisse pas passer cette opportunité. Investis en toi dès maintenant.
+            </p>
+            <a href="https://zuutdfrn.mychariow.store/prd_5n7dy3/checkout" class="cta-button">
+                💎 OUI, JE VEUX CHANGER MA VIE POUR 5€
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 - 21 Jours Pour Reprogrammer Ton Mental</p>
+        <p style="margin-top: 10px; opacity: 0.8;">Transforme ta vie en changeant ta façon de penser</p>
+    </footer>
+</body>
+</html>
